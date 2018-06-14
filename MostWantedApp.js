@@ -1,6 +1,6 @@
 /*
 Build all of your functions for displaying and gathering information below (GUI).
-*/
+*/debugger;
 
 // app is the function called to start the entire application
 
@@ -11,8 +11,8 @@ function app(people){
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   switch(searchType){
     case 'yes':
-    // TODO: search by name 
     searchByName()
+  
     break;
     case 'no':
     searchByTraits(people);
@@ -149,12 +149,11 @@ function mainMenu(person, people){
   }
 
   var displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
-  let optionChosen;
 
   switch(displayOption){
     case "info":
     // TODO: get person's info
-    let optionChosen = getInfo
+    displayPerson();
     
     break;
     case "family":
@@ -173,6 +172,7 @@ function mainMenu(person, people){
   }
 }
 
+
 function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
   var lastName = promptFor("What is the person's last name?", chars);
@@ -180,18 +180,20 @@ function searchByName(people){
   // TODO: find the person using the name they entered
 
   let firstNameResult = data.filter(function(el){
-    if(el.firstName === firstName)
+    if(el.firstName.toLowerCase() === firstName.toLowerCase())
       return true; 
   });
 
   let lastNameResult = data.filter(function(el){
-    if(el.lastName === lastName)
+    if(el.lastName.toLowerCase() === lastName.toLowerCase())
       return true;
   });
 
   return firstNameResult + lastNameResult
 
   }
+
+
 
 function getPersonAge() {
   let birthdate = new Date("1990/1/1");
@@ -211,13 +213,21 @@ function displayPeople(people){
   }).join("\n"));
 }
 
+
 function displayPerson(person){
-  // print all of the information about a person:
-  // height, weight, age, name, occupation, eye color.
-  var personInfo = "First Name: " + person.firstName + "\n";
-  personInfo += "Last Name: " + person.lastName + "\n";
-  // TODO: finish getting the rest of the information to display
-  alert(personInfo);
+ // print all of the information about a person:
+ // height, weight, age, name, occupation, eye color.
+ let personInfo = "First Name: " + person[0].firstName + "\n";
+ personInfo += "Last Name: " + person[0].lastName + "\n";
+ personInfo+= "gender: " + person[0].gender + "\n";
+ personInfo+= "dob: " + person[0].dob + "\n";
+ personInfo+= "height inches: " + person[0].height + "\n";
+ personInfo+= "weight lbs: " + person[0].weight + "\n";
+ personInfo+= "eyeColor: " + person[0].eyeColor + "\n";
+ personInfo+= "occupation: " + person[0].occupation + "\n";
+ personInfo+= "parents: " + person[0].parents + "\n";
+ personInfo+= "currentSpouse: " + person[0].currentSpouse + "\n";
+
 }
 
 // function that prompts and validates user input
@@ -238,4 +248,6 @@ function chars(input){
   return true; // default validation only
 }
 
+function getInfo(){
 
+}
