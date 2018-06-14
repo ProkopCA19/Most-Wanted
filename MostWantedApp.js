@@ -189,6 +189,15 @@ function searchByName(people){
 
   }
 
+function getPersonAge() {
+  let birthdate = new Date("1990/1/1");
+  let currentDate = new Date();
+  let difference = (currentDate - birthdate)
+  let age = Math.floor(difference/31557600000);
+  return age;
+}
+
+
 
 
 // alerts a list of people
