@@ -43,7 +43,6 @@ function searchByTraits(people) {
     case "occupation":
       filteredPeople = searchByOccupation(people);
       break;
-    // so on and so forth
     default:
       alert("You entered an invalid search type! Please try again.");
       searchByTraits(people);
@@ -63,7 +62,6 @@ function searchByWeight(people) {
     if(el.weight == userInputWeight) {
       return true;
     }
-    // return true if el.height matches userInputHeight
   });
 
   return newArray;
@@ -76,7 +74,6 @@ function searchByHeight(people) {
     if(el.height === userInputHeight) {
       return true;
     }
-    // return true if el.height matches userInputHeight
   });
 
   return heightResult;
@@ -89,7 +86,6 @@ function searchByEyeColor(people) {
     if(el.eyecolor == userInputEyeColor) {
       return true;
     }
-    // return true if el.height matches userInputHeight
   });
 
   return eyeColorResult;
@@ -101,12 +97,34 @@ function searchByGender(people) {
     if(el.gender == userInputGender) {
       return true;
     }
-    // return true if el.height matches userInputHeight
   });
 
   return genderResult;
 }
 
+function searchByAge(people) {
+  let userInputAge = prompt("What is the persons age?");
+
+  let ageResult = people.filter(function (el) {
+    if(el.dob == userInputAge) {
+      return true;
+    }
+  });
+
+  return ageResult;
+}
+
+function searchByOccupation(people) {
+  let userInputOccupation = prompt("What is the persons occupation?");
+
+  let occupationResult = people.filter(function (el) {
+    if(el.occupation == userInputOccupation) {
+      return true;
+    }
+  });
+
+  return occupationResult;
+}
 
 
 
@@ -127,10 +145,13 @@ function mainMenu(person, people){
   }
 
   var displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
+  let optionChosen;
 
   switch(displayOption){
     case "info":
     // TODO: get person's info
+    let optionChosen = getInfo
+    
     break;
     case "family":
     // TODO: get person's family
@@ -202,4 +223,10 @@ function yesNo(input){
 // helper function to pass in as default promptFor validation
 function chars(input){
   return true; // default validation only
+}
+
+
+function getInfo(){
+
+
 }
