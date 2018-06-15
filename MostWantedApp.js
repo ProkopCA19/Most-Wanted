@@ -11,8 +11,10 @@ function app(people){
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   switch(searchType){
     case 'yes':
-    searchByName()
-  
+    person = searchByName()
+    
+    mainMenu(person)()
+
     break;
     case 'no':
     searchByTraits(people);
@@ -63,7 +65,7 @@ function searchByWeight(people) {
   let userInputWeight = prompt("How many pounds does the person weigh?");
 
   let newArray = people.filter(function (el) {
-    if(el.weight == userInputWeight) {
+    if(el.weight === userInputWeight) {
       return true;
     }
   });
@@ -108,6 +110,9 @@ function searchByGender(people) {
 
 function searchByAge(people) {
   let userInputAge = prompt("What is the persons age?");
+  
+  let dateOfBirth = calcBirthDate(userInputAge);
+
 
   let ageResult = people.filter(function (el) {
     if(el.dob == userInputAge) {
@@ -153,7 +158,7 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
     // TODO: get person's info
-    displayPerson();
+    displayPerson(person);
     
     break;
     case "family":
