@@ -114,6 +114,10 @@ function searchByGender(people) {
   return genderResult;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 46e970998691a41e0556e29e1c58ed61273c5404
 function searchByOccupation(people) {
   let userInputOccupation = prompt("What is the persons occupation?");
 
@@ -126,9 +130,13 @@ function searchByOccupation(people) {
   return occupationResult;
 }
 
-debugger;
+// debugger;
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 46e970998691a41e0556e29e1c58ed61273c5404
 function searchByAge(people)   {
  let userInputAge = prompt("How old is the person?");
  let newArray = people.filter(function (el){
@@ -156,6 +164,12 @@ function getAge(el) {
  }
 
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 46e970998691a41e0556e29e1c58ed61273c5404
 
 
 // Menu function to call once you find who you are looking for
@@ -175,7 +189,15 @@ function mainMenu(person, people){
      displayPerson(person);
     break;
     case "family":
-    //to do:
+    let family = getFamily(person, people);
+    displayPeople(family);
+     // let spouse = findSpouse(person, people);
+     // displayPeople(spouse + descendants);
+     //let siblings = findSiblings(person, people);
+     //displayPeople(siblings);
+     //let parents = findParents(person,people);
+     //displayPeople(parents);
+
     break;
     case "descendants":
       let descendants = findKids(person, people);
@@ -206,6 +228,11 @@ function searchByName(people){
   return personArray[0];
   }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 46e970998691a41e0556e29e1c58ed61273c5404
 // alerts a list of people
 function displayPeople(people){
   alert(people.map(function(person){
@@ -258,14 +285,57 @@ function findKids(foundPerson, people){
   }
   });
  
-   
   for (let i = 0; i < children.length; i++) {
-  
     children = children.concat(findKids(children[i], people));     
   } 
     return children;
 }
 
+function findSpouse(foundPerson, people){
+  let spouse = people.filter(function(person){
+  
+    if(person.currentSpouse === foundPerson.id) {
+      return true; 
+    }
+
+  });
+  
+  return spouse; 
+}
 
 
+function findSiblings(foundPerson, people){
+  let siblings = people.filter(function(person){
+   for(let i = 0; i < person.parents.length; i++){
+    if(person.parents[i] === foundPerson.parents[i] && person.id != foundPerson.id) { 
+      return true; 
+    }
+  }
+  });
+
+  return siblings; 
+}
+
+
+function findParents(foundPerson, people){
+  let parents = people.filter(function(person){
+  for (let i = 0; i < foundPerson.parents.length; i++){
+    if(person.id == foundPerson.parents[i]){
+      return true; 
+    }
+  }
+  });
+  return parents;
+}
+
+
+function getFamily(foundPerson, people){
+  let siblings = findSiblings(foundPerson, people);
+  let spouse = findSpouse(foundPerson, people);
+  let kids = findKids(foundPerson, people);
+  let parents = findParents(foundPerson, people);
+  let family = siblings.concat(spouse).concat(kids).concat(parents); 
+  return family;
+
+}
 
