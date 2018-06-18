@@ -26,8 +26,6 @@ function app(people){
   }
 }
 
-<<<<<<< HEAD
-
 function appget () {
 
 
@@ -37,11 +35,11 @@ function appget () {
 
 function searchByTraits(people) {
 
-let filteredPeople;
+let filteredPeople = people;
 
 var searchType = promptFor("Do you know the gender of the person you are looking for? Enter 'yes or 'no'", yesNo).toLowerCase();
   if (searchType === "yes") {
-    filteredPeople = searchByGender(people);
+    filteredPeople = searchByGender(filteredPeople);
   } 
   searchType = promptFor("Do you know the height of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   if (searchType === "yes" ) {
@@ -123,20 +121,20 @@ function searchByGender(people) {
   return genderResult;
 }
 
-function searchByAge(people) {
-  let userInputAge = prompt("What is the persons age?");
+// function searchByAge(people) {
+//   let userInputAge = prompt("What is the persons age?");
   
-  let dateOfBirth = calcBirthDate(userInputAge);
+//   let dateOfBirth = calcBirthDate(userInputAge);
 
 
-  let ageResult = people.filter(function (el) {
-    if(el.dob == userInputAge) {
-      return true;
-    }
-  });
+//   let ageResult = people.filter(function (el) {
+//     if(el.dob == userInputAge) {
+//       return true;
+//     }
+//   });
 
-  return ageResult;
-}
+//   return ageResult;
+// }
 
 function searchByOccupation(people) {
   let userInputOccupation = prompt("What is the persons occupation?");
@@ -150,17 +148,18 @@ function searchByOccupation(people) {
   return occupationResult;
 }
 
+debugger;
 
 function searchByAge(people)   {
  let userInputAge = prompt("How old is the person?");
- let filteredPeopleAge = [];
  let newArray = people.filter(function (el){
    let age = getAge(el);
      if(userInputAge == age){
-       filteredPeopleAge.push(el);
+      return true;
      }
+
  });
- return newArray[0];
+ return newArray;
 }
 
 function getAge(el) {
@@ -233,20 +232,20 @@ function searchByName(people){
   }
 
 
-function getPeopleBirthdates(people)
-  let Birthdates[] = people.dob.map(function(el){
+// function getPeopleBirthdates(people)
+//   let Birthdates[] = people.dob.map(function(el){
 
-  }
-    )
+//   }
+//     )
 
 
-function getPersonAge() {
-  let birthdate = new Date("1990/1/1");
-  let currentDate = new Date();
-  let difference = (currentDate - birthdate)
-  let age = Math.floor(difference/31557600000);
-  return age;
-}
+// function getPersonAge() {
+//   let birthdate = new Date("1990/1/1");
+//   let currentDate = new Date();
+//   let difference = (currentDate - birthdate)
+//   let age = Math.floor(difference/31557600000);
+//   return age;
+// }
 
 
 
