@@ -4,14 +4,16 @@ Build all of your functions for displaying and gathering information below (GUI)
 
 // app is the function called to start the entire application
 
-;debugger;
+
 
 
 function app(people){
+
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();;
   switch(searchType){
     case 'yes':
    var person = searchByName(people);
+
    mainMenu(person, people);
     break;
     case 'no':
@@ -24,12 +26,14 @@ function app(people){
   }
 }
 
+<<<<<<< HEAD
 
 function appget () {
 
 
 
 }
+
 
 function searchByTraits(people) {
 
@@ -64,10 +68,12 @@ var searchType = promptFor("Do you know the gender of the person you are looking
     filteredPeople = searchByAge(filteredPeople);
   }
    
-  let foundPerson = filteredPeople[0];
-  alert(foundPerson.firstName + " " + foundPerson.lastName);
-  mainMenu(foundPerson, people);
+  let person = filteredPeople[0];
+  alert(person.firstName + " " + person.lastName);
+  mainMenu(person, people);
 }
+
+
 
 function searchByWeight(people) {
   let userInputWeight = prompt("How many pounds does the person weigh?");
@@ -179,21 +185,21 @@ function getAge(el) {
 
 
 // Menu function to call once you find who you are looking for
-function mainMenu(foundPerson, people){
+function mainMenu(person, people){
 
   /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
 
-  if(!foundPerson){
+  if(!person){
     alert("Could not find that individual.");
     return app(people); // restart
   }
 
-  var displayOption = prompt("Found " + foundPerson.firstName + " " + foundPerson.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
+  var displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
   switch(displayOption){
     case "info":
 
-    displayPerson(foundPerson);
+    displayPerson(person);
     break;
     case "family":
     // TODO: get person's family
@@ -218,17 +224,12 @@ function searchByName(people){
 
   // TODO: find the person using the name they entered
 
-  let person = people.filter(function(el){
+  let personArray = people.filter(function(el){
     if(el.firstName.toLowerCase() === firstName.toLowerCase() && el.lastName.toLowerCase()=== lastName.toLowerCase())
       return true; 
   });
 
-  // let lastNameResult = people.filter(function(el){
-  //   if(el.lastName.toLowerCase() === lastName.toLowerCase())
-  //     return true;
-  // });
-
-  return person;
+  return personArray[0];
   }
 
 
@@ -258,17 +259,17 @@ function displayPeople(people){
 }
 
 
-function displayPerson(foundPerson){
- let personInfo = "First Name: " + foundPerson.firstName + "\n";
- personInfo += "Last Name: " + foundPerson.lastName + "\n";
- personInfo+= "gender: " + foundPerson.gender + "\n";
- personInfo+= "dob: " + foundPerson.dob + "\n";
- personInfo+= "height inches: " + foundPerson.height + "\n";
- personInfo+= "weight lbs: " + foundPerson.weight + "\n";
- personInfo+= "eyeColor: " + foundPerson.eyeColor + "\n";
- personInfo+= "occupation: " + foundPerson.occupation + "\n";
- personInfo+= "parents: " + foundPerson.parents + "\n";
- personInfo+= "currentSpouse: " + foundPerson.currentSpouse + "\n";
+function displayPerson(person){
+ let personInfo = "First Name: " + person.firstName + "\n";
+ personInfo += "Last Name: " + person.lastName + "\n";
+ personInfo+= "gender: " + person.gender + "\n";
+ personInfo+= "dob: " + person.dob + "\n";
+ personInfo+= "height inches: " + person.height + "\n";
+ personInfo+= "weight lbs: " + person.weight + "\n";
+ personInfo+= "eyeColor: " + person.eyeColor + "\n";
+ personInfo+= "occupation: " + person.occupation + "\n";
+ personInfo+= "parents: " + person.parents + "\n";
+ personInfo+= "currentSpouse: " + person.currentSpouse + "\n";
 
  alert(personInfo);
 }
@@ -291,6 +292,4 @@ function chars(input){
   return true; // default validation only
 }
 
-function getInfo(){
 
-}
