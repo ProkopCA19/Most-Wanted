@@ -26,15 +26,7 @@ function app(people){
   }
 }
 
-<<<<<<< HEAD
-
-function appget () {
-
-
-
-}
-
-
+debugger;
 function searchByTraits(people) {
 
 let filteredPeople;
@@ -79,7 +71,7 @@ function searchByWeight(people) {
   let userInputWeight = prompt("How many pounds does the person weigh?");
 
   let newArray = people.filter(function (el) {
-    if(el.weight === userInputWeight) {
+    if(el.weight == userInputWeight) {
       return true;
 
     }
@@ -125,9 +117,6 @@ function searchByGender(people) {
 
 function searchByAge(people) {
   let userInputAge = prompt("What is the persons age?");
-  
-  let dateOfBirth = calcBirthDate(userInputAge);
-
 
   let ageResult = people.filter(function (el) {
     if(el.dob == userInputAge) {
@@ -151,33 +140,6 @@ function searchByOccupation(people) {
 }
 
 
-function searchByAge(people)   {
- let userInputAge = prompt("How old is the person?");
- let filteredPeopleAge = [];
- let newArray = people.filter(function (el){
-   let age = getAge(el);
-     if(userInputAge == age){
-       filteredPeopleAge.push(el);
-     }
- });
- return newArray[0];
-}
-
-function getAge(el) {
- let dobInfo = el.dob.split("/");
- let dob = dobInfo;
- let month = dob[0];
- let day = dob[1];
- let year = dob[2];
- let today = new Date();
- let age = today.getFullYear() - year;
-   if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)){
-     age--;
-   }
-   return age;
- }
-
-
 
 
 
@@ -198,7 +160,6 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
-
     displayPerson(person);
     break;
     case "family":
@@ -233,13 +194,6 @@ function searchByName(people){
   }
 
 
-function getPeopleBirthdates(people)
-  let Birthdates[] = people.dob.map(function(el){
-
-  }
-    )
-
-
 function getPersonAge() {
   let birthdate = new Date("1990/1/1");
   let currentDate = new Date();
@@ -247,8 +201,6 @@ function getPersonAge() {
   let age = Math.floor(difference/31557600000);
   return age;
 }
-
-
 
 
 // alerts a list of people
@@ -293,3 +245,6 @@ function chars(input){
 }
 
 
+function findChildren(people)
+
+  let children = people.slice[](parents)
