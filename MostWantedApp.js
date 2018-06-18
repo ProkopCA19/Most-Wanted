@@ -249,9 +249,7 @@ function findKids(foundPerson, people){
   }
   });
  
-   
   for (let i = 0; i < children.length; i++) {
-  
     children = children.concat(findKids(children[i], people));     
   } 
     return children;
