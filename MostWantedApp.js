@@ -26,17 +26,6 @@ function app(people){
   }
 }
 
-<<<<<<< HEAD
-function appget () {
-
-
-
-}
-
-
-=======
-debugger;
->>>>>>> f092647bffb4260246511706268991dc1f0a73a8
 function searchByTraits(people) {
 
 let filteredPeople = people;
@@ -125,25 +114,6 @@ function searchByGender(people) {
   return genderResult;
 }
 
-<<<<<<< HEAD
-// function searchByAge(people) {
-//   let userInputAge = prompt("What is the persons age?");
-  
-//   let dateOfBirth = calcBirthDate(userInputAge);
-
-=======
-function searchByAge(people) {
-  let userInputAge = prompt("What is the persons age?");
->>>>>>> f092647bffb4260246511706268991dc1f0a73a8
-
-//   let ageResult = people.filter(function (el) {
-//     if(el.dob == userInputAge) {
-//       return true;
-//     }
-//   });
-
-//   return ageResult;
-// }
 
 function searchByOccupation(people) {
   let userInputOccupation = prompt("What is the persons occupation?");
@@ -157,9 +127,9 @@ function searchByOccupation(people) {
   return occupationResult;
 }
 
-debugger;
+// debugger;
 
-<<<<<<< HEAD
+
 function searchByAge(people)   {
  let userInputAge = prompt("How old is the person?");
  let newArray = people.filter(function (el){
@@ -187,9 +157,6 @@ function getAge(el) {
  }
 
 
-=======
->>>>>>> f092647bffb4260246511706268991dc1f0a73a8
-
 
 
 
@@ -212,7 +179,15 @@ function mainMenu(person, people){
      displayPerson(person);
     break;
     case "family":
-    //to do:
+    let family = getFamily(person, people);
+    displayPeople(family);
+     // let spouse = findSpouse(person, people);
+     // displayPeople(spouse + descendants);
+     //let siblings = findSiblings(person, people);
+     //displayPeople(siblings);
+     //let parents = findParents(person,people);
+     //displayPeople(parents);
+
     break;
     case "descendants":
       let descendants = findKids(person, people);
@@ -243,26 +218,6 @@ function searchByName(people){
   return personArray[0];
   }
 
-
-<<<<<<< HEAD
-// function getPeopleBirthdates(people)
-//   let Birthdates[] = people.dob.map(function(el){
-
-//   }
-//     )
-
-
-// function getPersonAge() {
-//   let birthdate = new Date("1990/1/1");
-//   let currentDate = new Date();
-//   let difference = (currentDate - birthdate)
-//   let age = Math.floor(difference/31557600000);
-//   return age;
-// }
-
-
-=======
->>>>>>> f092647bffb4260246511706268991dc1f0a73a8
 
 
 // alerts a list of people
@@ -323,6 +278,51 @@ function findKids(foundPerson, people){
     return children;
 }
 
+function findSpouse(foundPerson, people){
+  let spouse = people.filter(function(person){
+  
+    if(person.currentSpouse === foundPerson.id) {
+      return true; 
+    }
+
+  });
+  
+  return spouse; 
+}
 
 
+function findSiblings(foundPerson, people){
+  let siblings = people.filter(function(person){
+   for(let i = 0; i < person.parents.length; i++){
+    if(person.parents[i] === foundPerson.parents[i] && person.id != foundPerson.id) { 
+      return true; 
+    }
+  }
+  });
+
+  return siblings; 
+}
+
+
+function findParents(foundPerson, people){
+  let parents = people.filter(function(person){
+  for (let i = 0; i < foundPerson.parents.length; i++){
+    if(person.id == foundPerson.parents[i]){
+      return true; 
+    }
+  }
+  });
+  return parents;
+}
+
+
+function getFamily(foundPerson, people){
+  let siblings = findSiblings(foundPerson, people);
+  let spouse = findSpouse(foundPerson, people);
+  let kids = findKids(foundPerson, people);
+  let parents = findParents(foundPerson, people);
+  let family = siblings.concat(spouse).concat(kids).concat(parents); 
+  return family;
+
+}
 
