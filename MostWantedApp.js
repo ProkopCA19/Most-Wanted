@@ -26,14 +26,24 @@ function app(people){
   }
 }
 
+<<<<<<< HEAD
+function appget () {
+
+
+
+}
+
+
+=======
 debugger;
+>>>>>>> f092647bffb4260246511706268991dc1f0a73a8
 function searchByTraits(people) {
 
-let filteredPeople;
+let filteredPeople = people;
 
 var searchType = promptFor("Do you know the gender of the person you are looking for? Enter 'yes or 'no'", yesNo).toLowerCase();
   if (searchType === "yes") {
-    filteredPeople = searchByGender(people);
+    filteredPeople = searchByGender(filteredPeople);
   } 
   searchType = promptFor("Do you know the height of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   if (searchType === "yes" ) {
@@ -115,17 +125,25 @@ function searchByGender(people) {
   return genderResult;
 }
 
+<<<<<<< HEAD
+// function searchByAge(people) {
+//   let userInputAge = prompt("What is the persons age?");
+  
+//   let dateOfBirth = calcBirthDate(userInputAge);
+
+=======
 function searchByAge(people) {
   let userInputAge = prompt("What is the persons age?");
+>>>>>>> f092647bffb4260246511706268991dc1f0a73a8
 
-  let ageResult = people.filter(function (el) {
-    if(el.dob == userInputAge) {
-      return true;
-    }
-  });
+//   let ageResult = people.filter(function (el) {
+//     if(el.dob == userInputAge) {
+//       return true;
+//     }
+//   });
 
-  return ageResult;
-}
+//   return ageResult;
+// }
 
 function searchByOccupation(people) {
   let userInputOccupation = prompt("What is the persons occupation?");
@@ -139,7 +157,38 @@ function searchByOccupation(people) {
   return occupationResult;
 }
 
+debugger;
 
+<<<<<<< HEAD
+function searchByAge(people)   {
+ let userInputAge = prompt("How old is the person?");
+ let newArray = people.filter(function (el){
+   let age = getAge(el);
+     if(userInputAge == age){
+      return true;
+     }
+
+ });
+ return newArray;
+}
+
+function getAge(el) {
+ let dobInfo = el.dob.split("/");
+ let dob = dobInfo;
+ let month = dob[0];
+ let day = dob[1];
+ let year = dob[2];
+ let today = new Date();
+ let age = today.getFullYear() - year;
+   if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)){
+     age--;
+   }
+   return age;
+ }
+
+
+=======
+>>>>>>> f092647bffb4260246511706268991dc1f0a73a8
 
 
 
@@ -195,6 +244,25 @@ function searchByName(people){
   }
 
 
+<<<<<<< HEAD
+// function getPeopleBirthdates(people)
+//   let Birthdates[] = people.dob.map(function(el){
+
+//   }
+//     )
+
+
+// function getPersonAge() {
+//   let birthdate = new Date("1990/1/1");
+//   let currentDate = new Date();
+//   let difference = (currentDate - birthdate)
+//   let age = Math.floor(difference/31557600000);
+//   return age;
+// }
+
+
+=======
+>>>>>>> f092647bffb4260246511706268991dc1f0a73a8
 
 
 // alerts a list of people
