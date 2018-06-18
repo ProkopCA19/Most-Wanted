@@ -26,17 +26,6 @@ function app(people){
   }
 }
 
-<<<<<<< HEAD
-function appget () {
-
-
-
-}
-
-
-=======
-debugger;
->>>>>>> f092647bffb4260246511706268991dc1f0a73a8
 function searchByTraits(people) {
 
 let filteredPeople = people;
@@ -125,26 +114,6 @@ function searchByGender(people) {
   return genderResult;
 }
 
-<<<<<<< HEAD
-// function searchByAge(people) {
-//   let userInputAge = prompt("What is the persons age?");
-  
-//   let dateOfBirth = calcBirthDate(userInputAge);
-
-=======
-function searchByAge(people) {
-  let userInputAge = prompt("What is the persons age?");
->>>>>>> f092647bffb4260246511706268991dc1f0a73a8
-
-//   let ageResult = people.filter(function (el) {
-//     if(el.dob == userInputAge) {
-//       return true;
-//     }
-//   });
-
-//   return ageResult;
-// }
-
 function searchByOccupation(people) {
   let userInputOccupation = prompt("What is the persons occupation?");
 
@@ -159,7 +128,7 @@ function searchByOccupation(people) {
 
 debugger;
 
-<<<<<<< HEAD
+
 function searchByAge(people)   {
  let userInputAge = prompt("How old is the person?");
  let newArray = people.filter(function (el){
@@ -185,12 +154,6 @@ function getAge(el) {
    }
    return age;
  }
-
-
-=======
->>>>>>> f092647bffb4260246511706268991dc1f0a73a8
-
-
 
 
 
@@ -242,28 +205,6 @@ function searchByName(people){
 
   return personArray[0];
   }
-
-
-<<<<<<< HEAD
-// function getPeopleBirthdates(people)
-//   let Birthdates[] = people.dob.map(function(el){
-
-//   }
-//     )
-
-
-// function getPersonAge() {
-//   let birthdate = new Date("1990/1/1");
-//   let currentDate = new Date();
-//   let difference = (currentDate - birthdate)
-//   let age = Math.floor(difference/31557600000);
-//   return age;
-// }
-
-
-=======
->>>>>>> f092647bffb4260246511706268991dc1f0a73a8
-
 
 // alerts a list of people
 function displayPeople(people){
