@@ -149,24 +149,25 @@ function searchByOccupation(people) {
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
 
-  /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
-
+ /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
   if(!person){
     alert("Could not find that individual.");
     return app(people); // restart
   }
 
+
   var displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
   switch(displayOption){
     case "info":
-    displayPerson(person);
+     displayPerson(person);
     break;
     case "family":
-    // TODO: get person's family
+    //to do:
     break;
     case "descendants":
-    // TODO: get person's descendants
+      let descendants = findKids(person, people);
+      displayPeople(descendants);
     break;
     case "restart":
     app(people); // restart
@@ -194,18 +195,11 @@ function searchByName(people){
   }
 
 
-function getPersonAge() {
-  let birthdate = new Date("1990/1/1");
-  let currentDate = new Date();
-  let difference = (currentDate - birthdate)
-  let age = Math.floor(difference/31557600000);
-  return age;
-}
 
 
 // alerts a list of people
 function displayPeople(people){
-  alert(data.map(function(person){
+  alert(people.map(function(person){
     return person.firstName + " " + person.lastName;
   }).join("\n"));
 }
@@ -245,6 +239,24 @@ function chars(input){
 }
 
 
-function findChildren(people)
+function findKids(foundPerson, people){
 
-  let children = people.slice[](parents)
+ let children = people.filter(function(person){
+  for (let i = 0; i < person.parents.length; i++){
+    if(person.parents[i] === foundPerson.id) {
+      return true; 
+    }
+  }
+  });
+ 
+   
+  for (let i = 0; i < children.length; i++) {
+  
+    children = children.concat(findKids(children[i], people));     
+  } 
+    return children;
+}
+
+
+
+
