@@ -26,6 +26,7 @@ function app(people){
   }
 }
 
+<<<<<<< HEAD
 function appget () {
 
 
@@ -33,6 +34,9 @@ function appget () {
 }
 
 
+=======
+debugger;
+>>>>>>> f092647bffb4260246511706268991dc1f0a73a8
 function searchByTraits(people) {
 
 let filteredPeople = people;
@@ -77,7 +81,7 @@ function searchByWeight(people) {
   let userInputWeight = prompt("How many pounds does the person weigh?");
 
   let newArray = people.filter(function (el) {
-    if(el.weight === userInputWeight) {
+    if(el.weight == userInputWeight) {
       return true;
 
     }
@@ -121,11 +125,16 @@ function searchByGender(people) {
   return genderResult;
 }
 
+<<<<<<< HEAD
 // function searchByAge(people) {
 //   let userInputAge = prompt("What is the persons age?");
   
 //   let dateOfBirth = calcBirthDate(userInputAge);
 
+=======
+function searchByAge(people) {
+  let userInputAge = prompt("What is the persons age?");
+>>>>>>> f092647bffb4260246511706268991dc1f0a73a8
 
 //   let ageResult = people.filter(function (el) {
 //     if(el.dob == userInputAge) {
@@ -150,6 +159,7 @@ function searchByOccupation(people) {
 
 debugger;
 
+<<<<<<< HEAD
 function searchByAge(people)   {
  let userInputAge = prompt("How old is the person?");
  let newArray = people.filter(function (el){
@@ -177,6 +187,8 @@ function getAge(el) {
  }
 
 
+=======
+>>>>>>> f092647bffb4260246511706268991dc1f0a73a8
 
 
 
@@ -186,25 +198,25 @@ function getAge(el) {
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
 
-  /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
-
+ /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
   if(!person){
     alert("Could not find that individual.");
     return app(people); // restart
   }
 
+
   var displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
   switch(displayOption){
     case "info":
-
-    displayPerson(person);
+     displayPerson(person);
     break;
     case "family":
-    // TODO: get person's family
+    //to do:
     break;
     case "descendants":
-    // TODO: get person's descendants
+      let descendants = findKids(person, people);
+      displayPeople(descendants);
     break;
     case "restart":
     app(people); // restart
@@ -232,6 +244,7 @@ function searchByName(people){
   }
 
 
+<<<<<<< HEAD
 // function getPeopleBirthdates(people)
 //   let Birthdates[] = people.dob.map(function(el){
 
@@ -248,11 +261,13 @@ function searchByName(people){
 // }
 
 
+=======
+>>>>>>> f092647bffb4260246511706268991dc1f0a73a8
 
 
 // alerts a list of people
 function displayPeople(people){
-  alert(data.map(function(person){
+  alert(people.map(function(person){
     return person.firstName + " " + person.lastName;
   }).join("\n"));
 }
@@ -290,5 +305,26 @@ function yesNo(input){
 function chars(input){
   return true; // default validation only
 }
+
+
+function findKids(foundPerson, people){
+
+ let children = people.filter(function(person){
+  for (let i = 0; i < person.parents.length; i++){
+    if(person.parents[i] === foundPerson.id) {
+      return true; 
+    }
+  }
+  });
+ 
+   
+  for (let i = 0; i < children.length; i++) {
+  
+    children = children.concat(findKids(children[i], people));     
+  } 
+    return children;
+}
+
+
 
 
