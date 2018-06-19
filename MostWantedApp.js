@@ -12,16 +12,15 @@ function app(people){
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();;
   switch(searchType){
     case 'yes':
-   var person = searchByName(people);
-
-   mainMenu(person, people);
+      var person = searchByName(people);
+      mainMenu(person, people);
     break;
     case 'no':
-    searchByTraits(people);
+      searchByTraits(people);
     break;
     default:
-    alert("Wrong! Please try again, following the instructions dummy. :)");
-    app(people); // restart app
+      alert("Wrong! Please try again, following the instructions dummy. :)");
+      app(people); 
     break;
   }
 }
@@ -127,7 +126,7 @@ function searchByOccupation(people) {
   return occupationResult;
 }
 
-// debugger;
+
 
 
 function searchByAge(people)   {
@@ -176,30 +175,23 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
-     displayPerson(person);
+      displayPerson(person);
     break;
     case "family":
-    let family = getFamily(person, people);
-    displayPeople(family);
-     // let spouse = findSpouse(person, people);
-     // displayPeople(spouse + descendants);
-     //let siblings = findSiblings(person, people);
-     //displayPeople(siblings);
-     //let parents = findParents(person,people);
-     //displayPeople(parents);
-
+      let family = getFamily(person, people);
+      displayPeople(family);
     break;
     case "descendants":
       let descendants = findKids(person, people);
       displayPeople(descendants);
     break;
     case "restart":
-    app(people); // restart
+      app(people); // restart
     break;
     case "quit":
-    return; // stop execution
+      return; // stop execution
     default:
-    return mainMenu(person, people); // ask again
+      return mainMenu(person, people); // ask again
   }
 }
 
@@ -208,19 +200,17 @@ function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
   var lastName = promptFor("What is the person's last name?", chars);
 
-  // TODO: find the person using the name they entered
-
   let personArray = people.filter(function(el){
     if(el.firstName.toLowerCase() === firstName.toLowerCase() && el.lastName.toLowerCase()=== lastName.toLowerCase())
       return true; 
   });
 
   return personArray[0];
-  }
+}
 
 
 
-// alerts a list of people
+
 function displayPeople(people){
   alert(people.map(function(person){
     return person.firstName + " " + person.lastName;
