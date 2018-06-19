@@ -113,7 +113,10 @@ function searchByGender(people) {
   return genderResult;
 }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 46e970998691a41e0556e29e1c58ed61273c5404
 function searchByOccupation(people) {
   let userInputOccupation = prompt("What is the persons occupation?");
 
@@ -129,6 +132,10 @@ function searchByOccupation(people) {
 
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 46e970998691a41e0556e29e1c58ed61273c5404
 function searchByAge(people)   {
  let userInputAge = prompt("How old is the person?");
  let newArray = people.filter(function (el){
@@ -156,9 +163,12 @@ function getAge(el) {
  }
 
 
+<<<<<<< HEAD
+=======
 
 
 
+>>>>>>> 46e970998691a41e0556e29e1c58ed61273c5404
 
 
 // Menu function to call once you find who you are looking for
@@ -209,8 +219,15 @@ function searchByName(people){
 }
 
 
+<<<<<<< HEAD
+=======
 
 
+<<<<<<< HEAD
+=======
+>>>>>>> 46e970998691a41e0556e29e1c58ed61273c5404
+// alerts a list of people
+>>>>>>> c2c833e9280bc874898b0c43de121764ee93e7fe
 function displayPeople(people){
   alert(people.map(function(person){
     return person.firstName + " " + person.lastName;
